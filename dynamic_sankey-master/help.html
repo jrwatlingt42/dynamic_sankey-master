@@ -1,0 +1,99 @@
+<html>
+<head>
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"></link>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<!-- Load plotly.js into the DOM -->
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<!-- style sheets -->
+<link rel="stylesheet" href="styles.css"> </link>
+</head>
+
+<style>
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15em;
+        border-radius: 3%;
+    }
+</style>
+
+<body style="background-color:#333333;">
+<br>
+
+<div class="container3">
+    <button onclick="window.open('mainframe.html')" type="button" class="btn btn-primary">Return to Sankey</button>
+</div>
+
+<div class="container">
+    <h1 style="color:white; font-size: 50px;">
+        <center><b>Dynamic Sankey Help Page</b></p>
+</div>
+
+    <div class="container2">
+        <h2 style="color:white; font-size: 40px; text-align: center; margin-bottom: 1em"> Step-by-step guide to navigating the Sankey Application</h2>
+        
+		<p style="color:white; font-size: 20px; text-align: center; margin-bottom: 2em">Jump to<br>
+		 <style="color:white"> 01. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_01">Step 01 (Name Sankey)</a>
+		 <style="color:white"> 02. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_02">Step 02 (Choose Background)</a>
+		 <style="color:white"> 03. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_03">Step 03 (Sankey Type)</a><br>
+		 <style="color:white"> 04. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_04">Step 04 (Color Gradient)</a>
+		 <style="color:white"> 05. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_05">Step 05 (Measurements/Units)</a>
+		 <style="color:white"> 06. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_06">Step 06 (Defining Nodes)</a><br>
+		 <style="color:white"> 07. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_07">Step 07 (Adding Links)</a>
+		 <style="color:white"> 08. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_08">Step 08 (Render Sankey)</a>
+		 <style="color:white"> 09. <a style="color:337FFF; font-size: 20px; text-align: center; margin-bottom: 5em" href="#Step_09">Step 09 (Download Sankey)</a>
+		</p>
+
+        <h2 style="color:white; font-size: 40px; text-align: center; margin-bottom: 1em" id="Step_01"> 1. Start by giving your Sankey Diagram a name.</h2>
+        <img src="images/1.png" style="width:540px;height:175px; margin-bottom: 2em">
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;" id="Step_02"> 2. Next, you can choose a background to have on your Sankey Diagram.</h2>
+        <img src="images/2.png" style="width:606px;height:781px; margin-bottom: 2em">
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;" id="Step_03"> 3. Afterwards, you can choose what type of Sankey you prefer to have: Nodes or Arrows.</h2>
+        <img src="images/3.png" style="width:463px;height:190px; margin-bottom: 2em">
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;" id="Step_04"> 4. Finally, you can choose whether you wish to have color gradient or not.</h2>
+        <img src="images/4.png" style="width:704px;height:193px; margin-bottom: 2em">
+
+        <!--<h3 style="color:white; font-size: 30px; text-align: center"> If you wish to access this section–The Help Section–there is a Help button<br>on the main page that will allow you to navigate here.</h3> -->
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;" id="Step_05"> 5. You can also make your graph more appealing by adding Measurements and/or Primary Units.</h2>
+        <img src="images/5.png" style="width:673px;height:1086px; margin-bottom: 2em">
+        <img src="images/6.png" style="width:411px;height:824px; margin-bottom: 2em">
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;" id="Step_06"> 6. The next section will be defining your Source and Destination Nodes.</h2>
+        <img src="images/7.png" style="width:547px;height:358px; margin-bottom: 2em">
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 0em;"> You can then choose a name, value, units, and converted units.</h2>
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 0em;"> Hit the "Add Source and Destination" button to create as many nodes as needed.</h2>
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;"> Clicking the bottom bar will allow you to change your node to any color.</h2>
+        <img src="images/8.png" style="width:624px;height:908px; margin-bottom: 2em">
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;" id="Step_07"> 7. Once you have finished creating your nodes you can add links</h2>
+        <img src="images/9.png" style="width:656px;height:295px; margin-bottom: 2em">
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 0em;"> You can then choose the source, destination, value, units, and the converted units.</h2>
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;"> Create more links by clicking the "Add Source and Destination Link" button.</h2>
+        <img src="images/10.png" style="width:718px;height:1058px; margin-bottom: 2em">
+
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 0em;" id="Step_08"> 8. Once you have completed the last step of adding your links you can then </h2>
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;"> render your Sankey Diagram by pressing the "Render Sankey" button.</h2>
+        <img src="images/11.png" style="width:322px;height:88px; margin-bottom: 2em">
+
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 0em;" id="Step_09"> 9. Once you have your Sankey rendered you can press the "Download Sankey" button, </h2>
+        <h2 style="color:white; font-size: 34; text-align: center; margin-bottom: 1em;"> which allows you to download a picture of your Sankey anywhere on your computer.</h2>
+         <img src="images/12.png" style="width:372px;height:89px; margin-bottom: 2em">
+
+        
+        
+
+</body>
+
+</html>

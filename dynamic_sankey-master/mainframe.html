@@ -1,0 +1,187 @@
+<html>
+<head>
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"></link>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<!-- Load plotly.js into the DOM -->
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<!-- style sheets -->
+<link rel="stylesheet" href="styles.css"> </link>
+</head>
+
+<style>
+
+     .img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15em;
+        border-radius: 3%;
+    }
+    
+
+    .footer {
+        text-align: center;
+        padding: 3px;
+        background-color: lightblue;
+        color: white;
+    }
+</style>
+
+<body>
+
+<br>
+	<div class="container3">
+		<button onclick="window.open('help.html')" type="button" class="btn btn-primary">Help Page</button>
+		<button onclick="example()" type="button" class="btn btn-primary">Example</button>
+	</div> 
+
+<center>
+<img src="images/ORNL.png" style="width:300px;height:155px; margin-bottom: 0em">
+</center>
+
+	<h1><center>Dynamic Sankey Tool</center></h1>
+	<div class="container">
+		<div class="form-group">
+			<label for="title">Enter the Title of Your Sankey</label>
+			<input type="text" class="form-control" id="title" onchange="newTitle()">
+		</div>
+	</div>
+	
+	<div class="container2">
+		<h3>Background Color</h3>
+		<input type='color' class='inp' id='colorPicker' onchange = "chartColor()" value='#FFFFFF' style="width: 145px">
+
+		<h3>Type of Sankey</h3>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary" onclick="hasArrows(false)">Nodes</button>
+			<button type="button" class="btn btn-primary" onclick="hasArrows(true)">Arrows</button>
+		</div>
+
+		<h3>Color Gradient</h3>
+		<div class="btn-group" id="colorGradient">
+			<button type="button" class="btn btn-primary" onclick="removeColorGradient()">No Color Gradient</button>
+			<button type="button" class="btn btn-primary" onclick="addColorGradient()">Color Gradient</button><br>
+		</div>
+
+		<h3>Sankey Measurements</h3>
+		<select class="input-group" name="measures" id="measures" onchange = "newMeasures()">
+			<option value="energy">Energy</option>
+			<option value="power">Power</option>
+			<option value="force">Force</option>
+			<option value="voltage">Voltage</option>
+			<option value="current">Current</option>
+			<option value="reactivePower">Reactive Power</option>
+			<option value="apparentPower">Apparent Power</option>
+			<option value="reactiveEnergy">Reactive Energy</option>
+			<option value="specificEnergy">Specific Energy</option>
+			<option value="temperature">Temperature</option>
+			<option value="thermalConductivity">Thermal Conductivity</option>
+			<option value="hourlyHeatCapacity">Hourly Heat Capacity</option>
+			<option value="pressure">Pressure</option>
+			<option value="volume">Volume</option>
+			<option value="specificVolume">Specific Volume</option>
+			<option value="volumeFlowRate">Volume Flow Rate</option>
+			<option value="volumetricHeat">Volumetric Heat</option>
+			<option value="volumetricEnergy">Volumetric Energy</option>
+			<option value="illuminance">Illuminance</option>
+			<option value="frequency">Frequency</option>
+			<option value="time">Time</option>
+			<option value="viscosity">Viscosity</option>
+			<option value="density">Density</option>
+			<option value="digital">Digital</option>
+			<option value="partsPer">Parts Per</option>
+			<option value="speed">Speed</option>
+			<option value="pace">Pace</option>
+			<option value="length">Length</option>
+			<option value="area">Area</option>
+			<option value="mass">Mass</option>
+			<option value="each">Each</option>
+		</select>
+
+		<h3>Primary Units</h3>
+		<select class="input-group" name="unitOptions" id="unitOptions" onchange = "newPrimaryUnit()">
+		</select>
+		
+		<h3>Add Sources and Destinations</h3> 
+		<div style="width: 120px;  display: inline-block;">
+			<table class="table table-bordered" style="margin: 0px;">
+				<tbody>
+					<tr >
+						<td style="width:120px" class="text-center">
+							<h3 style="margin-top: 5px">Source and Destination Nodes</h3>
+							<div class="text-center" >
+								<button class="btn btn-secondary btn-pop" onclick="addNode()" >Add Source or Destination</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br><br>
+		<div class="row"id="makeInputs">
+			<!-- This is where Node UI will get added -->
+		</div>
+		
+		
+		<h3>Define Your Source to Destination Flow</h3>
+		<div style="width: 120px;  display: inline-block;">
+			<table class="table table-bordered" style="margin: 0px;">
+				<tbody>
+					<tr>
+						<td style="width:120px" class="text-center">
+							<h3 style="margin-top: 5px">Source and Destination Flow</h3>
+							<div class="text-center">
+								<button class="btn btn-secondary btn-pop" onclick="addLink()" >Add Source and Destination Link</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br><br>
+		<div class="row" id="makeLinks">
+			<!-- This is where link UI will get added -->
+		</div>
+	</div>
+	<br>
+	<div class="container">
+		<center><button type="button" class="btn btn-info" onclick="renderSankey()">Render Sankey</button>
+		<button type="button" class="btn btn-info" onclick="downloadSankey()">Download Sankey</button></center>
+	</div>
+	
+	<br>
+
+	<!--<script> makeSankey(); </script> -->
+	<div id='myDiv' style="width:100%;height:750px;"></div>
+	<script src='sankey.js'></script>
+	<script src="node_modules/save-svg-as-png/lib/saveSvgAsPng.js"></script>
+
+
+    <center>
+    <div class="footerBorder"></div>
+    <div class="footer">
+        <div class="jh-card row">
+            <div class="col-8">
+                <p class="help">
+                    <a routerLink="/technical-assistance/faq">FAQ</a> |
+                    <a routerLink="/contact-us">Contact Us</a>
+                </p>
+                <p>Oak Ridge National Laboratory is managed by UT-Battelle LLC for the US Department of Energy</p>
+                <a href="https://www.ornl.gov/ornl/contact-us/Security--Privacy-Notice">Security & Privacy Notice</a> |
+                <a href="mailto:accawigk@ornl.gov?subject=Dynamic&nbsp;Sankey&nbsp;Tool:&nbsp;Issues">Contact Site Administrator</a> |
+                <a href="https://www.ornl.gov/content/accessibility">Accessibility/508</a> |
+                <a href="https://www.ornl.gov/content/notice-nondiscrimination-and-accessibility-requirements">Nondiscrimination/1557</a>
+            </div>
+            <div class="col-4">
+                <img class="img doe" alt="Department Of Energy Logo" src="images/doe-science-white.svg">
+                <img class="img utbat" alt="UT-Battelle Logo" src="images/ut-battelle.png">
+            </div>
+        </div>
+    </div>
+	<center>
+</body>
+</html>
